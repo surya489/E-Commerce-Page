@@ -1,0 +1,113 @@
+@media(max-width: 1400px) {
+    .c {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media(max-width: 1300px) {
+    #product1 .pro {
+        width: 32%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .c {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@media(max-width: 900px) {
+    .c {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .navbar_wrap {
+        display: none;
+    }
+    #bar {
+        padding: 0 20px;
+    }
+    #mobile_menu {
+        display: block;
+    }
+    .show_menu .mobile_menu_new .navbar_wrap {
+        display: block;
+    }
+    .show_menu .mobile_menu_new .navbar_wrap #navbar li a {
+        font-size: 30px;
+    }
+
+    .show_menu .mobile_menu_new .navbar_wrap #navbar li {
+        width: max-content;
+        margin: 30px 20px;
+    }
+    .show_menu .mobile_menu_new .navbar_wrap #navbar {
+        height: 100vh;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        z-index: 9999;
+        width: 100vw;
+        background: #e3e6f3;
+        text-align: center;
+        display: block;
+        border-top: 1px solid var(--green);
+        /* flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center; */
+    }
+    .show_menu .mobile_menu_new .navbar_wrap #navbar.show {
+        top: 0; /* Slide into view */
+    }
+    #header .fa-solid.fa-bag-shopping {
+        opacity: 1;
+        visibility: visible;
+        transition: all .4s;
+        cursor: pointer;
+        height: 100%;
+    }
+    .show_menu #header .fa-solid.fa-bag-shopping {
+        opacity: 0;
+        visibility: hidden;
+        cursor: none;
+        height: 0;
+    }
+    .fa-solid.fa-bag-shopping {
+        color: var(--green);
+        transition: all .4s;
+    }
+    .fa-solid.fa-bag-shopping:hover {
+        color: var(--black);
+    }
+    #product1 .pro {
+        width: 48.5%;
+    }
+    #sm-banner {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 800px) {
+    #newsletter {
+        display: block;
+        width: 100%;
+    }
+    #newsletter .form {
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px) {
+    .c {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #product1 .pro {
+        width: 100%;
+    }
+    #product1 .pro-container {
+        gap: 10px;
+    }
+}

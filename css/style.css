@@ -9,20 +9,20 @@
 h1{
     font-size: 50px;
     line-height: 64px;
-    color: #222;
+    color: var(--lite-black);
 }
 
 h2
 {
     font-size: 46px;
     line-height: 54px;
-    color: #222;
+    color: var(--lite-black);
 }
 
 h4 
 {
     font-size: 20px;
-    color: #222;
+    color: var(--lite-black);
 }
 
 h6
@@ -33,31 +33,25 @@ h6
 p
 {
     font-size: 16px;
-    color: #465b52;
+    color: var(--lite-grey);
     margin: 15px 0 20px 0;
 }
 
-.section-p1
+/* .section-p1
 {
-    padding: 40px 80px;
-}
-
-.section-m1
-{
-    margin: 40px 0;
-}
+    padding: 40px 100px;
+} */
 
 button.normal
 {
     font-size: 14px;
     font-weight: 600;
     padding: 15px 30px;
-    color: #000;
+    color: var(--black);
     background-color: #fff;
     cursor: pointer;
     border: none;
     outline: none;
-    transition: 0.2s;
 }
 
 button.white
@@ -70,7 +64,6 @@ button.white
     cursor: pointer;
     border: 1px solid #fff;
     outline: none;
-    transition: 0.2s;
 }
 
 
@@ -79,12 +72,18 @@ body
     width: 100%;
 }
 
+body.stop-scrolling {
+    overflow: hidden;
+}
+
 #header
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background: #e3e6f3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
@@ -93,9 +92,15 @@ body
     left: 0%;
 }
 
+.navbar_wrap {
+    display: block;
+    position: relative;
+}
+
 #navbar
 {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -113,13 +118,13 @@ body
     font-size: 16px;
     font-weight: 600;
     color: #1a1a1a;
-    transition: 0.3S ease;
+    transition: all 0.3S;
 }
 
 #navbar li a:hover,
 #navbar li a.active
 {
-    color: #088178;
+    color: var(--green);
 }
 
 #navbar li a.active::after,
@@ -128,16 +133,120 @@ body
     content: "";
     width: 30%;
     height: 2px;
-    background: #088178;
+    background: var(--green);
     position: absolute;
     bottom: -4px;
     left: 20px;
+    transition: all 0.4s;
 }
-#mobile 
-{
+
+.burger_menu_wrap {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#mobile_menu {
     display: none;
-    align-items: center;
 }
+
+#mobile_menu a {
+    vertical-align: middle;
+}
+
+.burger_menu {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.lines {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transition: all 0.4s;
+}
+
+.lines::before,
+.lines::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transition: all 0.4s;
+    left: 0;
+    transition-delay: 0s, .4s;
+}
+
+.show_menu .lines::before {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.show_menu .lines::after {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+.show_menu .lines {
+    background-color: transparent;
+}
+
+.lines::before {
+    top: -10px;
+}
+
+.lines::after {
+    bottom: -10px;
+}
+
+.menu_items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.menu_items li {
+    border-bottom: 1px solid #ccc;
+}
+
+.menu_items li:last-child {
+    border-bottom: none;
+}
+
+.menu_items a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+/* .burger_menu_wrap:hover .menu_items {
+    display: block;
+} */
+
+/* .burger_menu_wrap:hover .lines {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.burger_menu_wrap:hover .lines::before {
+    transform: rotate(-45deg) translateY(0);
+}
+
+.burger_menu_wrap:hover .lines::after {
+    transform: rotate(45deg) translateY(0);
+} */
 
 #close
 {
@@ -154,7 +263,6 @@ body
     background-size: cover;
     background-position: top 25% right 0; 
     /* to position  bg-image to the center  */
-    padding: 0 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -168,14 +276,14 @@ body
 
 #hero h1
 {
-    color: #088178;
+    color: var(--green);
 }
 
 #hero button
 {
 background-image: url(../img/button.png);
 background-color: transparent;
-color: #088178;
+color: var(--green);
 border: 0;
 padding: 14px 80px 14px 65px;
 background-repeat: no-repeat;
@@ -218,7 +326,7 @@ font-size: 15px;
     display: inline-block;
     padding: 9px 8px 6px 8px;
     line-height: 1;
-    color: #088178;
+    color: var(--green);
     background-color: #fddde4;
 }
 
@@ -258,6 +366,7 @@ font-size: 15px;
     justify-content: space-between;
     padding-top: 20px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 #product1 .pro
@@ -316,7 +425,7 @@ font-size: 15px;
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-    color: #088178;
+    color: var(--green);
 }
 
 #product1 .pro .cart
@@ -326,11 +435,18 @@ font-size: 15px;
     line-height: 40px;
     border-radius: 50px;
     background-color: #e8f6ea;
-    color: #088178;
+    color: var(--green);
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
     right: 10px;
+    transition: all .4s;
+}
+
+#product1 .pro:hover .cart {
+    background: var(--green);
+    color: #e8f6ea;
+    border: 1px solid #036962;
 }
 
 #banner
@@ -367,14 +483,14 @@ font-size: 15px;
 
 #banner button:hover
 {
-    background: #088178;
+    background: var(--green);
     color: #fff;
 }
 
 #sm-banner
 {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -423,8 +539,8 @@ font-size: 15px;
 
 #sm-banner .banner-box:hover button
 {
-    background: #088178;
-    border: 1px solid #088178;
+    background: var(--green);
+    border: 1px solid var(--green);
 }
 
 #banner3
@@ -432,7 +548,6 @@ font-size: 15px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 80px;
 }
 
 #banner3 .banner-box
@@ -528,7 +643,7 @@ font-size: 15px;
 
 #newsletter button 
 {
-    background-color: #088178;
+    background-color: var(--green);
     color: #fff;
     white-space: nowrap;
     border-top-left-radius: 0;
@@ -544,10 +659,28 @@ footer
 
 footer .col
 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: inline-block;
+    width: 40%;
     margin-bottom: 20px;
+}
+
+footer .col:nth-child(2), footer .col:nth-child(3) {
+    width: 20%;
+}
+
+footer .col.install .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+footer .col.install {
+    width: 100%;
+}
+
+footer .col p strong {
+    letter-spacing: 0.5px;
 }
 
 footer .logo
@@ -569,10 +702,12 @@ footer p
 
 footer a 
 {
+    display: block;
     font-size: 13px;
     text-decoration: none;
-    color: #222;
+    color: var(--lite-black);
     margin-bottom: 10px;
+    transition: all .4s;
 }
 
 footer .follow
@@ -582,14 +717,15 @@ footer .follow
 
 footer .follow i 
 {
-    color: #465b52;
+    color: var(--lite-grey);
     padding-right: 4px;
     cursor: pointer;
+    transition: all .4s;
 }
 
 footer .install .row img 
 {
-    border: 1px solid #088178;
+    border: 1px solid var(--green);
     border-radius: 6px;
 } 
 
@@ -601,7 +737,7 @@ footer .install img
 footer .follow i:hover,
 footer a:hover 
 {
-    color: #088178;
+    color: var(--green);
 }
 
 footer .copyright
@@ -639,7 +775,7 @@ footer .copyright
 #page-ination a 
 {
     text-decoration: none;
-    background-color: #088178;
+    background-color: var(--green);
     padding: 15px 20px;
     border-radius: 4px;
     color: #fff;
@@ -724,7 +860,7 @@ footer .copyright
 #pro-details .single-pro-details button
 {
     color: #fff;
-    background-color: #088178;
+    background-color: var(--green);
 }
 
 #pro-details .single-pro-details span
